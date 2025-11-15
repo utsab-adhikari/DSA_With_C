@@ -1,3 +1,4 @@
+// WAP to find Factorial of a Number by Recursion
 #include<stdio.h>
 
 int factorial(int n) {
