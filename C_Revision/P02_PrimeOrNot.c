@@ -1,3 +1,4 @@
+// WAP to Check the given number is Prime or Not;
 #include <stdio.h>
 
 int main() {
