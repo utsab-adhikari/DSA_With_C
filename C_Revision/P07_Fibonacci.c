@@ -1,4 +1,4 @@
-// WAP to find Fibonacci series up to n terms.
+// WAP to find Fibonacci series up to n terms by Recursion.
 #include <stdio.h>
 
 void fibo(int n)
