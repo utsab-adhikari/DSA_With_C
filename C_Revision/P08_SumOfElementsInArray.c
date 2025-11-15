@@ -1,11 +1,16 @@
-//WAP to find sum of elements in an array using Recursion.
+// WAP to find sum of elements in an array using Recursion.
 
 #include <stdio.h>
 int sumOfArray(int arr[], int n)
 {
     if (n <= 0)
+    {
         return 0;
-    return arr[n - 1] + sumOfArray(arr, n - 1);
+    }
+    else
+    {
+        return arr[n - 1] + sumOfArray(arr, n - 1);
+    }
 }
 
 int main()
@@ -26,4 +31,4 @@ int main()
     printf("Sum of elements in array: %d\n", sum);
 
     return 0;
-}   
+}
