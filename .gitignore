@@ -1,0 +1,42 @@
+# Compiled binary
+a.out
+*.out
+*.exe
+
+# Object files
+*.o
+*.obj
+
+# Compiled libraries
+*.so
+*.dll
+*.dylib
+*.lib
+*.a
+*.la
+
+# Debug / profiling
+*.gch
+*.pch
+*.gcno
+*.gcda
+*.gcov
+
+# Build directories
+/build/
+/bin/
+/target/
+/dist/
+
+# IDE files
+*.DS_Store
+*.vscode/
+*.idea/
+*.code-workspace
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.swp
