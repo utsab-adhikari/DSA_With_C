@@ -1,38 +1,23 @@
-// WAP to find Fibonacci series up to n terms by Recursion.
-#include <stdio.h>
+#include<stdio.h>
 
-void fibo(int n)
-{
-    int a = 0, b = 1, c;
-
-    if (n <= 0)
-        return;
-
-    printf("%d\t", a);
-
-    if (n == 1)
-        return;
-
-    printf("%d\t", b);
-
-    for (int i = 3; i <= n; i++)
-    {
-        c = a + b;
-        printf("%d\t", c);
-        a = b;
-        b = c;
+int fibo(int n) {
+    if (n==0) {
+        return 0;
+    } 
+    if(n==1) {
+        return 1;
     }
-    printf("\n");
+    
+    return fibo(n-1)+fibo(n-2);
 }
 
-int main()
-{
-    int num;
-
-    printf("Enter how many terms: ");
+int main() {
+    int num,i;
+    printf("Enter the number of terms: ");
     scanf("%d", &num);
-
-    fibo(num);
-
+    printf("Fibonacci Series: ");
+    for(i=0;i<num;i++) {
+        printf("%d ", fibo(i));
+    }
     return 0;
 }
