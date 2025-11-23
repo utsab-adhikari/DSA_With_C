@@ -1,0 +1,23 @@
+#include<stdio.h>
+
+int fibo(int n) {
+    if (n==0) {
+        return 0;
+    } 
+    if(n==1) {
+        return 1;
+    } // base cases
+    
+    return fibo(n-1)+fibo(n-2);  // recursive case
+}
+
+int main() {
+    int num,i;
+    printf("Enter the number of terms: ");
+    scanf("%d", &num);
+    printf("Fibonacci Series: ");
+    for(i=0;i<num;i++) {
+        printf("%d ", fibo(i)); // recursive call
+    }
+    return 0;
+}
