@@ -42,12 +42,16 @@ int main() {
 
             case 2:
                 value = pop();
-                printf("\nPoped item: %d\n", value);
+                if(value != -1) {
+                	printf("\nPoped item: %d\n", value);
+                }
                 break;
             
             case 3:
                 value = peek();
-                printf("\nPeeked item: %d\n", value);
+                if(value != -1) {
+                	printf("\nPeeked item: %d\n", value);
+				}
                 break;
             
             case 4:
@@ -93,6 +97,7 @@ int push(int value){
 int pop(){
     if(isEmpty()) {
         printf("\nError While Poping !!\nStack Underflow !!!\n");
+        return -1;
     }
 
     return stack[top--];
@@ -100,6 +105,7 @@ int pop(){
 int peek(){
     if(isEmpty()) {
         printf("\nError While Peeking !!\nStack Underflow !!!\n");
+        return -1;
     }
 
     return stack[top];
