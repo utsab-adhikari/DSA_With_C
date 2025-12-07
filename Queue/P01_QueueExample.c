@@ -1,3 +1,4 @@
+// Queue implementation with array
 #include<stdio.h>
 #define MAX 5
 
