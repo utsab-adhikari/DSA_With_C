@@ -1,6 +1,6 @@
 // Queue implementation using structure
 #include<stdio.h>
-#define MAX 100
+#define MAX 5
 
 struct Queue {
     int queue[MAX];
@@ -14,7 +14,7 @@ void initializeQueue(struct Queue *p) {
 }
 
 int isEmpty(struct Queue *p) {
-    return (p->front == -1);
+    return (p->front == -1 && p->rear == -1);
 }
 int isFull(struct Queue *p) {
     return (p->rear == MAX-1);
@@ -24,6 +24,9 @@ int enqueue(struct Queue *p, int data) {
     if(isFull(p)) {
         printf("\nThe Queue is full\nOverflow Warning");
         return -1;
+    } 
+    if(isEmpty(p)) {
+        p->front++;
     }
     p->rear++;
     p->queue[p->rear] = data;
@@ -41,6 +44,7 @@ int dequeue(struct Queue *p) {
         p->front = -1;
         p->rear = -1;
     }
+    p->front++;
     printf("\nThe Element %d is deleted from the Queue\n", data);
     return data;
 }
@@ -50,7 +54,7 @@ int display(struct Queue *p) {
         printf("\nThe Queue is Empty\n");
         return -1;
     }
-    for(int i=p->front;i<p->rear;i++) {
+    for(int i=p->front;i<=p->rear;i++) {
         printf("\nQueue NO: %d, Element: %d\n", i, p->queue[i]);
     }
     return 1;
