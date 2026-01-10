@@ -42,6 +42,13 @@ void insertAtEnd(Node** head, int data) {
     temp->next = newNode;
 }
 
+void deleteFromBeginning(Node** head) {
+    if(*head == NULL) return;
+    Node* temp = *head;
+    *head = (*head)->next;
+    free(temp);
+}
+
 int main() {
     Node* head = NULL;
     
@@ -50,6 +57,8 @@ int main() {
     insertAtEnd(&head, 20);
     insertAtBeginning(&head, 1);
     
+    displayList(head);
+    deleteFromBeginning(&head);
     displayList(head);
     
     return 0;
