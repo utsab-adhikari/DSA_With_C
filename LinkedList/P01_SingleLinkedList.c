@@ -2,64 +2,52 @@
 #include<stdlib.h>
 
 typedef struct Node {
-    int data;
-    struct Node* next;
+	int data;
+	struct Node* next;
 } Node;
 
+Node* Head = NULL;
+
 Node* createNode(int data) {
-    Node* newNode = (Node*)malloc(sizeof(Node));
-    newNode->data = data;
-    newNode->next = NULL;
-    return newNode;
+	Node* newNode = malloc(sizeof(Node));
+	newNode->data = data;
+	newNode->next = NULL;
+	return newNode;
 }
 
-void displayList(Node* head) {
-    Node* current = head;
-    printf("Linked List: ");
-    while(current != NULL) {
-        printf("%d -> ", current->data);
-        current = current->next;
-    }
-    printf("NULL\n");
+int insertAtFirst(int data) {
+	Node* newNode = createNode(data);
+	if(newNode == NULL) {
+		return 0;
+	}
+	if(Head == NULL) {
+		Head = newNode;
+		return 1;
+	}
+	newNode->next = Head;
+	Head = newNode;
+	return 1;
 }
 
-void insertAtBeginning(Node** head, int data) {
-    Node* newNode = createNode(data);
-    newNode->next = *head;
-    *head = newNode;
+int insertAtPos(int data, int pos) {
+	if(pos == 0) {
+		insertAtFirst(data);
+		return 1;
+	}
+	Node* temp;
+	temp = Head;
+	int count = 0;
+	while(count<pos-1 && temp != NULL) {
+		temp = temp->next;
+		count++;
+	}
+	if(temp == NULL) {
+	printf("\n Position out of List \n");
+		return 0;
+	}
+	Node* newNode = createNode(data);
+	newNode->next = temp->next;
+	temp->next = newNode;
+	return 1;
 }
 
-void insertAtEnd(Node** head, int data) {
-    Node* newNode = createNode(data);
-    if(*head == NULL) {
-        *head = newNode;
-        return;
-    }
-    Node* temp = *head;
-    while(temp->next != NULL) {
-        temp = temp->next;
-    }
-    temp->next = newNode;
-}
-
-void deleteFromBeginning(Node** head) {
-    if(*head == NULL) return;
-    Node* temp = *head;
-    *head = (*head)->next;
-    free(temp);
-}
-
-int main() {
-    Node* head = NULL;
-    
-    insertAtEnd(&head, 10);
-    insertAtBeginning(&head, 5);
-    insertAtEnd(&head, 20);
-    insertAtBeginning(&head, 1);
-    
-    displayList(head);
-    deleteFromBeginning(&head);
-    displayList(head);
-    
-    return 0;
-}
