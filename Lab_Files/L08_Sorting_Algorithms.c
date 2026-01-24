@@ -68,7 +68,7 @@ int main() {
     int input[11] = {9, 4, 6, 5, 2, 8, 9, 10, 16, 17, 2};
 
     quickSort(input, 11);
-
+ 
     for (int i = 0; i < 11; i++) {
         printf("%d ", input[i]);
     }
