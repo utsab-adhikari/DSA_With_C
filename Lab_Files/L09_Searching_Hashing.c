@@ -2,27 +2,33 @@
 
 void linearSearch(int arr[], int n, int key){
 	int i;
-	for( i=0;i<n;i++) {
-		if(key == arr[i]) {
+	while(i<n) {
+		if(arr[i]==key) {
 			break;
 		}
+		i++;
 	}
 	printf("\nThe Index of the Element %d id %d", key, i); 
 }
 
 void binarySearch(int arr[], int n, int key) {
 	int i, high =n, low=0;
-	if(arr[i]) {
-		printf("\nThe Index of the Element %d id %d", key);
-		return;
+	while(low<=high) {
+		int mid = (low+high)/2;
+		if(arr[mid]==key) {
+			printf("\nThe Index of the Element %d id %d", key, mid); 
+			return;
+		} else if(arr[mid]<key) {
+			low = mid+1;
+		} else {
+			high = mid-1;
+		}
 	}
-	if(arr[i]>key) {
-		
-	}
+	printf("\nElement not found");
 }
 
 int main() {
 	int input[10] = {3, 4, 5, 1,  6, 7, 2, 8, 9, 0};
-	linearSearch(input, 10, 7);
+	binarySearch(input, 10, 7);
 	return 0;
 }
